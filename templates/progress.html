@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5 fade-in">
+    <h1 class="mb-4">📈 Your Weekly Progress</h1>
+
+    <!-- 📊 Graph Section -->
+    <div class="mb-5">
+        <h4 class="mb-3">Sleep & Stress Graph</h4>
+        <img src="{{ url_for('progress_graph') }}" alt="Progress Graph" class="img-fluid rounded shadow">
+    </div>
+
+    <!-- 📅 Daily Stats Cards -->
+    <div class="row justify-content-center">
+        {% for day, sleep, stress, stars in progress %}
+        <div class="col-md-3 mb-4">
+            <div class="card shadow p-3 rounded-4">
+                <h5 class="card-title">Day {{ day }}</h5>
+                <p>😴 Sleep: <strong>{{ sleep }} hours</strong></p>
+                <p>🌿 Stress: <strong>{{ stress }}/5</strong></p>
+                <p>⭐ Stars Earned:</p>
+                <p>
+                    {% for i in range(stars) %}
+                        <img src="{{ url_for('static', filename='img/star.png') }}" width="20px">
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- 🏆 Star Jar -->
+    <h3 class="mt-5">⭐ Collected Stars ⭐</h3>
+    <div style="position: relative; width: 200px; margin: 20px auto;">
+        <img src="{{ url_for('static', filename='img/jar.png') }}" style="width: 200px;">
+
+        <div id="stars-container" style="position: absolute; top: 20px; left: 20px; width: 160px; height: 160px;">
+            {% for i in range(total_stars) %}
+                <img src="{{ url_for('static', filename='img/star.png') }}" class="floating-star" style="top: {{ (i*10)%140 }}px; left: {{ (i*15)%140 }}px;">
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .floating-star {
+        width: 20px;
+        position: absolute;
+        animation: floatUp 2s ease-in-out infinite alternate;
+    }
+    @keyframes floatUp {
+        from { transform: translateY(0); }
+        to { transform: translateY(-10px); }
+    }
+    .fade-in {
+        animation: fadeIn 2s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+{% endblock %}

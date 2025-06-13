@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center">
+    <h2>🌟 Your Daily Progress 🌟</h2>
+
+    <h4 style="margin-top: 30px;">📋 Today's Recommendations</h4>
+    <div class="row justify-content-center">
+        <div class="col-md-3 m-2">
+            <img src="{{ url_for('static', filename='img/diet_checkin.png') }}" style="width:100px;">
+            <p><strong>Diet:</strong> {{ today["Diet"] }}</p>
+        </div>
+        <div class="col-md-3 m-2">
+            <img src="{{ url_for('static', filename='img/workout.png') }}" style="width:100px;">
+            <p><strong>Workout:</strong> {{ today["Workout"] }}</p>
+        </div>
+        <div class="col-md-3 m-2">
+            <img src="{{ url_for('static', filename='img/sleep_improvement.png') }}" style="width:100px;">
+            <p><strong>Sleep:</strong> {{ today["Sleep Habits"] }}</p>
+        </div>
+        <div class="col-md-3 m-2">
+            <img src="{{ url_for('static', filename='img/stress_relief.png') }}" style="width:100px;">
+            <p><strong>Stress:</strong> {{ today["Stress Busters"] }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

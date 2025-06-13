@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="feedback-form">
+  <h2>🌟 We value your feedback!</h2>
+
+  <form action="/submit_feedback" method="POST">
+    <div class="mb-3">
+      <label>Did your sleep improve?</label><br>
+      <input type="radio" name="sleep_improved" value="yes"> Yes
+      <input type="radio" name="sleep_improved" value="no"> No
+    </div>
+
+    <div class="mb-3">
+      <label>Did you follow our diet suggestions?</label><br>
+      <input type="radio" name="followed_diet" value="yes"> Yes
+      <input type="radio" name="followed_diet" value="no"> No
+    </div>
+
+    <div class="mb-3">
+      <label>Any suggestions for us?</label>
+      <textarea name="suggestions" class="form-control"></textarea>
+    </div>
+
+    <button class="btn btn-success">Submit Feedback</button>
+  </form>
+</div>
+{% endblock %}

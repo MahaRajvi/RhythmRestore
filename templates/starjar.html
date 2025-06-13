@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center mt-5 fade-in">
+    <h2>⭐ Your Collected Stars ⭐</h2>
+
+    <div style="position: relative; width: 200px; height: 300px; margin: 20px auto;">
+        <img src="{{ url_for('static', filename='img/jar.png') }}" style="width: 200px;">
+
+        <div style="position: absolute; top: 50px; left: 20px; width: 160px; height: 200px;">
+            {% for i in range(total_stars) %}
+                <img src="{{ url_for('static', filename='img/star.png') }}" class="floating-star" style="top: {{ (i*30)%150 }}px; left: {{ (i*40)%120 }}px;">
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .floating-star {
+        width: 20px;
+        position: absolute;
+        animation: floatUp 3s infinite alternate ease-in-out;
+    }
+    @keyframes floatUp {
+        from { transform: translateY(0); }
+        to { transform: translateY(-15px); }
+    }
+    .fade-in {
+        animation: fadeIn 2s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+{% endblock %}

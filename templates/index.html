@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RhythmRestore</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 30px;
+            font-size: 36px;
+            color: #ff4c4c;
+        }
+        .form-container {
+            background-color: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .btn {
+            background-color: #ff4c4c;
+            color: white;
+            font-weight: bold;
+            padding: 12px 30px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #e63946;
+        }
+        .categories {
+            margin-top: 40px;
+        }
+        .categories div {
+            display: inline-block;
+            margin: 8px;
+            padding: 12px 18px;
+            border-radius: 15px;
+            font-weight: bold;
+            color: white;
+            font-size: 14px;
+        }
+        .yellow { background-color: #f4b400; }
+        .green { background-color: #34a853; }
+        .blue { background-color: #4285f4; }
+        .purple { background-color: #9c27b0; }
+        .pink { background-color: #e91e63; }
+        .orange { background-color: #fb8c00; }
+        .gray { background-color: #607d8b; }
+    </style>
+</head>
+<body>
+
+    <h1>RhythmRestore</h1>
+
+    <form method="POST" action="/recommend" class="form-container">
+
+        <label>Sleep Time:</label>
+        <input type="time" name="sleep_time">
+
+        <label>Wake-up Time:</label>
+        <input type="time" name="wake_time">
+
+        <label>Meals Skipped:</label>
+        <select name="meals_skipped">
+            <option value="Never">Never</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Always">Always</option>
+        </select>
+
+        <label>Mood:</label>
+        <select name="mood">
+            <option value="Happy">Happy</option>
+            <option value="Sad">Sad</option>
+            <option value="Anxious">Anxious</option>
+            <option value="Tired">Tired</option>
+            <option value="Calm">Calm</option>
+            <option value="Angry">Angry</option>
+        </select>
+
+        <label>Work Pressure Level:</label>
+        <select name="work_stress">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+
+        <label>Stress Level:</label>
+        <select name="stress">
+            <option value="1">1 - No Stress</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Extremely Stressed</option>
+        </select>
+
+        <label>Traffic Delay Impact:</label>
+        <select name="traffic">
+            <option value="Never">Never</option>
+            <option value="Rarely">Rarely</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Always">Always</option>
+        </select>
+
+        <button class="btn" type="submit">Get Recommendations</button>
+    </form>
+
+   
+
+</body>
+</html>

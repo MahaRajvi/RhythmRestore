@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Admin Dashboard</h2>
+    <a href="{{ url_for('admin_logout') }}" class="btn btn-danger float-end">Logout</a>
+    <br><br>
+
+    <!-- Simple Table of Feedbacks -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sleep Improved?</th>
+                <th>Followed Diet?</th>
+                <th>Stars Earned</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback['id'] }}</td>
+                <td>{{ feedback['sleep_improved'] }}</td>
+                <td>{{ feedback['followed_diet'] }}</td>
+                <td>{{ feedback['stars_earned'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+
+    <!-- Graph Section -->
+    <h3 class="mt-5 text-center">🌟 User Progress Overview 🌟</h3>
+    <canvas id="feedbackChart" width="400" height="400"></canvas>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('feedbackChart').getContext('2d');
+    var feedbackChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Sleep Improved', 'Sleep Not Improved'],
+            datasets: [{
+                label: 'Feedback Overview',
+                data: [{{ sleep_yes }}, {{ sleep_no }}],
+                backgroundColor: ['#74b9ff', '#fab1a0'],
+                borderColor: ['#0984e3', '#e17055'],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Sleep Improvement Status'
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

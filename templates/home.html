@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5 fade-in">
+
+    <h1 class="display-4 mb-3">🌙 Welcome to <strong>RhythmRestore</strong> 🌙</h1>
+    <p class="lead mb-4">Restore your natural sleep rhythm and boost your energy! ✨</p>
+
+    <a href="/register" class="btn btn-primary btn-lg">Start Restoring 🚀</a>
+
+    <div class="card shadow p-4" style="background: #e0f7fa; border-radius: 20px;">
+        <h2 class="mb-3">🧠 Why Circadian Rhythm Matters?</h2>
+        <p class="mb-4">
+            Your circadian rhythm is your body's natural clock. Disruptions can lead to poor sleep, stress, and health problems.
+            RhythmRestore helps you realign naturally! 🌿
+        </p>
+        <img src="{{ url_for('static', filename='img/cute_bunny.png') }}" alt="Circadian Balance" class="img-fluid rounded">
+    </div>
+
+</div>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    }
+    .fade-in {
+        animation: fadeInAnimation ease 2s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+    @keyframes fadeInAnimation {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+</style>
+
+{% endblock %}

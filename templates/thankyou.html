@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="subtitle">🎉 Thank You for Your Feedback!</h2>
+
+<div class="bunny-chatbot">
+    <img src="{{ url_for('static', filename='img/cute_bunny.png') }}" alt="Happy Bunny" class="bunny">
+    <div class="chat-message">You made my day brighter! 🌟</div>
+</div>
+
+<a href="/" class="feedback-button">🏠 Go Home</a>
+{% endblock %}

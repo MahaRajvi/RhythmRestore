@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-container mx-auto" style="max-width: 600px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0px 10px 20px rgba(0,0,0,0.2);">
+    <h2 class="text-center mb-4 text-success">Create Your Profile 🌟</h2>
+
+    <form action="/register" method="POST">
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" name="phone" required>
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Continue to Restore Rhythm 🚀</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

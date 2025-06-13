@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-container mx-auto" style="max-width: 600px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0px 10px 20px rgba(0,0,0,0.2);">
+    <h2 class="text-center mb-4 text-primary">🛌 Daily Rhythm Input 🛌</h2>
+
+    <form action="/recommend" method="POST">
+
+        <div class="mb-3">
+            <label class="form-label">Sleep Time</label>
+            <input type="time" class="form-control" name="sleep_time" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Wake Up Time</label>
+            <input type="time" class="form-control" name="wake_time" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Did You Skip Meals?</label>
+            <select class="form-select" name="meals_skipped" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Stress Level (1-5)</label>
+            <select class="form-select" name="stress" required>
+                <option value="">Select</option>
+                <option value="1">1 - No Stress</option>
+                <option value="2">2 - Low Stress</option>
+                <option value="3">3 - Moderate Stress</option>
+                <option value="4">4 - High Stress</option>
+                <option value="5">5 - Extremely High Stress</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Mood</label>
+            <select class="form-select" name="mood" required>
+                <option value="">Select</option>
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Anxious">Anxious</option>
+                <option value="Neutral">Neutral</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Did You Get Stuck in Traffic?</label>
+            <select class="form-select" name="traffic" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Phone Screen Time Before Bed</label>
+            <select class="form-select" name="screen_time" required>
+                <option value="">Select</option>
+                <option value="0-1 Hr">0-1 Hr</option>
+                <option value="1-2 Hr">1-2 Hr</option>
+                <option value="2-3 Hr">2-3 Hr</option>
+                <option value="More than 3 Hr">More than 3 Hr</option>
+            </select>
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-success btn-lg mt-3">🌟 Restore My Rhythm 🌟</button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}
