@@ -29,9 +29,7 @@ static/
 templates/
 ├── *.html # Frontend pages (Jinja2/Flask compatible)
 
-yaml
-Copy
-Edit
+
 
 ---
 
@@ -61,7 +59,7 @@ python src/main.py
 🔐 Note
 send_sms.py and .env files are excluded from this repo to protect API credentials. Be sure to configure your environment variables locally.
 
-📸 Screenshots
+
 
 
 
@@ -92,21 +90,5 @@ Final year B.Tech Student passionate about AI, wellness, and full-stack developm
 📄 License
 This project is licensed under the MIT License.
 
-yaml
-Copy
-Edit
 
----
 
-#### ✅ 4. **Save and close the file**
-
----
-
-#### 🚀 5. **Push the README to GitHub**
-
-Back in your terminal:
-
-```bash
-git add README.md
-git commit -m "Added detailed README for RhythmRestore"
-git push
